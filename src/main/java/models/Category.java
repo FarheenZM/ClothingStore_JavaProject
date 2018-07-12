@@ -5,5 +5,5 @@ public enum Category {
     NEW_IN,
     CLOTHES,
     SHOES,
-    ACCESSORIES
+    ACCESSORIE
 }
