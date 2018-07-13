@@ -1,18 +1,27 @@
 package models;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
-
+@Entity
+@Table(name="shop")
 public class Shop {
 
     private int id;
     private String name;
     private Set<Product> products;
 
+	public Shop(){
+
+	}
+
     public Shop(String name) {
         this.name = name;
     }
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
     public int getId() {
         return id;
     }
@@ -21,8 +30,7 @@ public class Shop {
         this.id = id;
     }
 
-
-
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -31,9 +39,7 @@ public class Shop {
         this.name = name;
     }
 
-
-
-
+    @OneToMany(mappedBy = "shop", fetch = FetchType.LAZY)
     public Set<Product> getProducts() {
         return products;
     }
