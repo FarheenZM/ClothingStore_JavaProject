@@ -1,10 +1,12 @@
 package controllers;
 
 import db.DBHelper;
+import models.Category;
 import models.Product;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,8 +25,14 @@ public class ProductController {
             HashMap<String, Object> model = new HashMap<>();
 
             List<Product> products = DBHelper.getAll(Product.class);
-            model.put("template", "templates/products/newIn.vtl");
-            model.put("products", products);
+            List<Product> newProducts = new ArrayList<>();
+            for( Product product : products) {
+                if (product.getCategory() == Category.NEW_IN) {
+                    newProducts.add(product);
+                    model.put("template", "templates/products/newIn/index.vtl");
+                    model.put("newProducts", newProducts);
+                }
+            }
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
@@ -34,8 +42,14 @@ public class ProductController {
             HashMap<String, Object> model = new HashMap<>();
 
             List<Product> products = DBHelper.getAll(Product.class);
-            model.put("template", "templates/products/clothes.vtl");
-            model.put("products", products);
+            List<Product> clothes = new ArrayList<>();
+            for( Product product : products) {
+                if (product.getCategory() == Category.CLOTHES) {
+                    clothes.add(product);
+                    model.put("template", "templates/products/clothes/index.vtl");
+                    model.put("clothes", clothes);
+                }
+            }
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
@@ -44,18 +58,29 @@ public class ProductController {
             HashMap<String, Object> model = new HashMap<>();
 
             List<Product> products = DBHelper.getAll(Product.class);
-            model.put("template", "templates/products/shoes.vtl");
-            model.put("products", products);
+            List<Product> shoes = new ArrayList<>();
+            for( Product product : products) {
+                if (product.getCategory() == Category.SHOES) {
+                    shoes.add(product);
+                    model.put("template", "templates/products/shoes/index.vtl");
+                    model.put("shoes", shoes);
+                }
+            }
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());
 
         get("/accessories", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
-
             List<Product> products = DBHelper.getAll(Product.class);
-            model.put("template", "templates/products/accessories.vtl");
-            model.put("products", products);
+            List<Product> accessories = new ArrayList<>();
+            for( Product product : products){
+                if (product.getCategory() == Category.ACCESSORIES){
+                    accessories.add(product);
+                    model.put("template", "templates/products/accessories/index.vtl");
+                    model.put("accessories", accessories);
+                }
+            }
             return new ModelAndView(model, "templates/layout.vtl");
 
         }, new VelocityTemplateEngine());

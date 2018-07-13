@@ -5,15 +5,13 @@
         <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Category</th>
             <th>Price</th>
         </tr>
-        #foreach($product in $products)
+        #foreach($clothing in $clothes)
         <tr>
-            <td>$product.getTitle()</td>
-            <td>$product.getDescription()</td>
-            <td>$product.getCategory()</td>
-            <td>$product.getPrice()</td>
+            <td>$clothing.getTitle()</td>
+            <td>$clothing.getDescription()</td>
+            <td>$clothing.getPrice()</td>
         </tr>
         #end
     </table>
