@@ -1,0 +1,20 @@
+<p class = "pageHeader">Shoes</p>
+
+<div class = "container">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        #foreach($product in $products)
+        <tr>
+            <td>$product.getTitle()</td>
+            <td>$product.getDescription()</td>
+            <td>$product.getCategory()</td>
+            <td>$product.getPrice()</td>
+        </tr>
+        #end
+    </table>
+</div>

@@ -1,5 +1,7 @@
 package models;
 
+import javax.persistence.Column;
+
 public class Product {
 
     private int id;
@@ -7,12 +9,14 @@ public class Product {
     private String description;
     private Category category;
     private int price;
+    private String image;
 
-    public Product(String title, String description, Category category, int price) {
+    public Product(String title, String description, Category category, int price, String image) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
+        this.image = image;
     }
 
     public int getId() {
@@ -65,5 +69,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Column(name = "image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
