@@ -1,5 +1,3 @@
-<p class = "pageHeader">Clothes</p>
-
 <div class = "container">
     <table>
         <tr>
@@ -7,18 +5,19 @@
             <th>Description</th>
             <th>Price</th>
         </tr>
-        #foreach($clothing in $clothes)
         <tr>
             <td>$clothing.getTitle()</td>
             <td>$clothing.getDescription()</td>
             <td>$clothing.getPrice()</td>
-            <td><a href="/clothes/$clothing.getId()">Show</a></td>
+            <a href="/clothes/$clothing.getId()/edit">Edit Item</a>
         </tr>
-        #end
     </table>
+
+    <form action="/clothes/$clothing.getId()/delete" method="post">
+        <input type="submit" value="Delete" class="button"/>
+    </form>
+
 </div>
 
 
-
 <a href="/">HOME</a>
-

@@ -1,0 +1,30 @@
+<p class="pageHeader">Edit Product</p>
+
+<form action="/clothings/$clothing.getId()/edit" method="post">
+
+    <label for="title">Name :</label>
+    <input class="inputBox" type="text" name="title" required="true" id="title" value="$clothing.getTitle()"/>
+
+    <label for="description">Description :</label>
+    <input class="inputBox" type="text" name="description" required="true" id="description" value="$clothing.getDescription()"/>
+
+    <label for="category">Category :</label>
+    <select id="category" name="category"> <!--for dropdown list-->
+        #foreach($category in $categories)
+        <option value="$category" #if ($category == $clothing.getCategory()) selected #end>$category.getDescription()</option>
+        #end
+    </select>
+
+
+    <label for="price">Price :</label>
+    <input class="inputBox" type="number" name="price" required="true" id="price" value="$clothing.getPrice()"/>
+
+    <label for="image">Image :</label>
+    <input class="inputBox" type="text" name="image" required="true" id="image" value="$clothing.getImage()"/>
+
+    <input type="submit" value="Save" class="button"/>
+
+</form>
+
+
+<a href="/">HOME</a>

@@ -1,0 +1,23 @@
+<div class = "container">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>$newin.getTitle()</td>
+            <td>$newin.getDescription()</td>
+            <td>$newin.getPrice()</td>
+            <a href="/newin/$newin.getId()/edit">Edit Item</a>
+        </tr>
+    </table>
+
+    <form action="/newin/$newin.getId()/delete" method="post">
+        <input type="submit" value="Delete" class="button"/>
+    </form>
+
+</div>
+
+
+<a href="/">HOME</a>
