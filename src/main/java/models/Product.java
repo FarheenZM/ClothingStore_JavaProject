@@ -17,11 +17,12 @@ public class Product {
 
     }
 
-    public Product(String title, String description, Category category, int price) {
+    public Product(String title, String description, Category category, int price, Shop shop) {
         this.title = title;
         this.description = description;
         this.category = category;
         this.price = price;
+        this.shop = shop;
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

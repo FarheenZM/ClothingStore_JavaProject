@@ -47,4 +47,5 @@ public class Shop {
     public void setProducts(Set<Product> products) {
         this.products = products;
     }
+
 }
