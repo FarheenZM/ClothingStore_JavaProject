@@ -1,0 +1,26 @@
+<p class="pageHeader">New Product</p>
+
+<form action="/add" method="post">
+
+    <label for="title">Name :</label>
+    <input class="inputBox" type="text" name="title" required="true" id="title"/>
+
+    <label for="description">Description :</label>
+    <input class="inputBox" type="text" name="description" required="true" id="description"/>
+
+    <label for="category">Category :</label>
+    <select id="category" name="category"> <!--for dropdown list-->
+        #foreach($category in $categories)
+        <option value="$category">$category.getDescription()</option>
+        #end
+    </select>
+
+    <label for="price">Price :</label>
+    <input class="inputBox" type="number" name="price" required="true" id="price"/>
+
+    <label for="image">Image :</label>
+    <input class="inputBox" type="text" name="image" required="true" id="image"/>
+
+    <input type="submit" value="Save" class="button"/>
+
+</form>

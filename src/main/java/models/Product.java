@@ -20,7 +20,7 @@ public class Product {
 
     }
 
-    public Product(String title, String description, Category category, int price, Shop shop, String image) {
+    public Product(String title, String description, Category category, int price, String image, Shop shop) {
         this.title = title;
         this.description = description;
         this.category = category;
