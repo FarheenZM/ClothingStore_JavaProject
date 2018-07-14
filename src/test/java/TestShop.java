@@ -41,7 +41,7 @@ public class TestShop {
         Collections.addAll(products, product1, product2);
 
         ClothesShop.setProducts(products);
-        assertEquals(2, ClothesShop.getProducts().size()); //Set has unique values, so duplicate products will give count 1
+        assertEquals(2, ClothesShop.getProducts().size()); //Set has unique values, so duplicate products will give count of 1
 
     }
 }
