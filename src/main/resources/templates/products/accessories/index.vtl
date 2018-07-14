@@ -3,16 +3,18 @@
 <div class = "container">
     <table>
         <tr>
+            <th>Image</th>
             <th>Title</th>
             <th>Description</th>
             <th>Price</th>
         </tr>
         #foreach($accessory in $accessories)
-        <td>
+        <tr>
+            <td><img src="$accessory.getImage()" alt="$accessory.getTitle()" height="100" width="80" title="$accessory.getTitle()"></td>
             <td>$accessory.getTitle()</td>
             <td>$accessory.getDescription()</td>
-            <td>$accessory.getPrice()</td>
-            <td></td><a href="/accessories/$accessory.getId()">Show</a></td>
+            <td>£$accessory.getPrice()</td>
+            <td><a href="/accessories/$accessory.getId()">Show</a></td>
         </tr>
         #end
     </table>

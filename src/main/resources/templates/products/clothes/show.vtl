@@ -1,23 +1,18 @@
+
 <div class = "container">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>$clothing.getTitle()</td>
-            <td>$clothing.getDescription()</td>
-            <td>$clothing.getPrice()</td>
-            <a href="/clothes/$clothing.getId()/edit">Edit Item</a>
-        </tr>
-    </table>
+
+    <img src="$clothing.getImage()" alt="$clothing.getTitle()" title="$clothing.getTitle()"><br>
+
+    <b>$clothing.getTitle()</b><br>
+    $clothing.getDescription()<br>
+    £$clothing.getPrice()<br>
+
+    <br>
+
+    <a href="/clothes/$clothing.getId()/edit">Edit Item</a>
 
     <form action="/clothes/$clothing.getId()/delete" method="post">
         <input type="submit" value="Delete" class="button"/>
     </form>
 
 </div>
-
-
-<img src="images/checked_pants.jpg"/>

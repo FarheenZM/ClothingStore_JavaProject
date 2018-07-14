@@ -1,25 +1,18 @@
+
 <div class = "container">
-    <table>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>$accessory.getTitle()</td>
-            <td>$accessory.getDescription()</td>
-            <td>$accessory.getPrice()</td>
+
+            <img src="$accessory.getImage()" alt="$accessory.getTitle()" title="$accessory.getTitle()"><br>
+
+            <b>$accessory.getTitle()<br></b>
+            $accessory.getDescription()<br>
+            £$accessory.getPrice()<br>
+
+            <br>
+
             <a href="/accessories/$accessory.getId()/edit">Edit Item</a>
-        </tr>
-    </table>
 
-
-
-    <form action="/accessories/$accessory.getId()/delete" method="post">
-        <input type="submit" value="Delete" class="button"/>
-    </form>
+            <form action="/accessories/$accessory.getId()/delete" method="post">
+                <input type="submit" value="Delete" class="button"/>
+            </form>
 
 </div>
-
-
-<img src="$accessory.getImage()"/>
