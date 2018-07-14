@@ -1,6 +1,7 @@
 package models;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @Entity
@@ -16,7 +17,9 @@ public class Shop {
 	}
 
     public Shop(String name) {
-        this.name = name;
+
+	    this.name = name;
+	    this.products = new HashSet<>();
     }
 
 	@Id
