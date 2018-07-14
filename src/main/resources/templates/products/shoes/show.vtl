@@ -9,6 +9,7 @@
             <td>$shoe.getTitle()</td>
             <td>$shoe.getDescription()</td>
             <td>$shoe.getPrice()</td>
+            <td>$shoe.getImage()</td>
             <td><a href="/shoes/$shoe.getId()/edit">Edit Item</a></td>
             <td><form action="/shoes/$shoe.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button"/>
@@ -19,4 +20,4 @@
 </div>
 
 
-<a href="/">HOME</a>
+<img src="$shoe.getImage()">
