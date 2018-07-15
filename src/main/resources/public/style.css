@@ -1,0 +1,46 @@
+.nav{
+  display: block;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top:0;
+  border-bottom:1px solid black;
+  border-top:1px solid black;
+}
+
+.nav li{
+  display: inline-block;
+  margin-right: 45px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: lucinda grande;
+  color: black;
+  font-size: 14px;
+  color: black;
+  z-index: 10;
+}
+
+.nav li a {
+  color: black;
+
+  padding: 5px;
+}
+.nav a:hover {
+  color: #dad4d4;;
+}
+
+
+a {text-decoration: none;
+  color: black;
+  font-family: lucinda grande;
+}
+
+a:hover{
+color:grey;}
+
+body{
+font-family: lucinda grande;
+}
+
+.container{
+margin-top:30px;}
