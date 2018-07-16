@@ -22,11 +22,12 @@ public class DBUser {
         List<Product> favProducts = null;
         try{
             Criteria cr = session.createCriteria(Product.class);
-            cr.add(Restrictions.eq("user", user));
+            cr.createAlias("users", "user");
+            cr.add(Restrictions.eq("user.id", user.getId()));
             favProducts = cr.list();
 
         }catch (HandlerException e){
-
+            e.printStackTrace();
         }finally {
             session.close();
         }

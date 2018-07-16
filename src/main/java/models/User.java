@@ -1,6 +1,10 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -10,7 +14,7 @@ public class User {
 
     private int id;
     private String name;
-    private Set<Product> products;
+    private List<Product> products;
 
 
     public User(){
@@ -19,6 +23,7 @@ public class User {
 
     public User(String name) {
         this.name = name;
+        this.products = new ArrayList<>();
     }
 
 
@@ -42,12 +47,22 @@ public class User {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    public Set<Product> getProducts() {
+
+
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "products_users",
+            joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "product_id", nullable = false, updatable = false)})
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public void addProductToCart(Product product){
+        this.products.add(product);
     }
 }

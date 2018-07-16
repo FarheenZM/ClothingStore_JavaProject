@@ -3,13 +3,12 @@ package controllers;
 import db.DBHelper;
 import models.Category;
 import models.Product;
+import models.Review;
 import models.Shop;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -93,6 +92,35 @@ public class ShoesController {
 		post("/shoes/:id/delete", (req, res) -> { //deletes manager &  displays manager list ; only post route
 			Product shoe = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 			DBHelper.delete(shoe);
+			res.redirect("/shoes");
+			return null;
+		}, new VelocityTemplateEngine());
+
+		get("/shoes/:id/review", (req, res) -> { //opens up the review form
+			HashMap<String, Object> model = new HashMap<>();
+			String stringId = req.params(":id");
+			Integer id = Integer.parseInt(stringId);
+			Product product = DBHelper.find(id, Product.class);
+
+			model.put("shoe", product);
+			model.put("template", "templates/products/shoes/show.vtl");
+			return new ModelAndView(model, "templates/layout");
+		}, new VelocityTemplateEngine());
+
+
+		post("/shoes/:id/review", (req, res) -> { //saves a review to a product
+			String title = req.queryParams("title");
+			String review = req.queryParams("review");
+			Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+
+			Set<Review> reviews = new HashSet<>();
+			Review newReview = new Review(title, review, clothing);
+			DBHelper.save(newReview);
+
+			reviews.add(newReview);
+			clothing.setReviews(reviews);
+
+			DBHelper.save(clothing);
 			res.redirect("/shoes");
 			return null;
 		}, new VelocityTemplateEngine());

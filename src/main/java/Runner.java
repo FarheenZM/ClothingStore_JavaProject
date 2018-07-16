@@ -34,13 +34,20 @@ public class Runner {
     List<Category> foundCategories = DBHelper.getAllCategories();
 
     User user1 = new User("tara");
-    Set<Product> userProducts = new HashSet<>();
-    DBHelper.save(userProducts);
+
+    List<Product> userProducts = new ArrayList<>();
     userProducts.add(clothing1);
     userProducts.add(shoe1);
     user1.setProducts(userProducts);
     DBHelper.save(user1);
-      List<Product> favProducts = DBUser.getAllFavProducts(user1);
+
+//    Set<User> users = new HashSet<>();
+//    users.add(user1);
+//    clothing1.setUsers(users);
+//    DBHelper.save(clothing1);
+
+    List<Product> blah = DBUser.getAllFavProducts(user1);
+
 
 }
 }

@@ -2,13 +2,12 @@ package controllers;
 import db.DBHelper;
 import models.Category;
 import models.Product;
+import models.Review;
 import models.Shop;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -92,5 +91,35 @@ public class AccessoriesController {
 			res.redirect("/accessories");
 			return null;
 		}, new VelocityTemplateEngine());
+
+			get("/accessories/:id/review", (req, res) -> { //opens up the review form
+				HashMap<String, Object> model = new HashMap<>();
+				String stringId = req.params(":id");
+				Integer id = Integer.parseInt(stringId);
+				Product product = DBHelper.find(id, Product.class);
+
+				model.put("accessory", product);
+				model.put("template", "templates/products/accessories/show.vtl");
+				return new ModelAndView(model, "templates/layout");
+			}, new VelocityTemplateEngine());
+
+
+			post("/accessories/:id/review", (req, res) -> { //saves a review to a product
+				String title = req.queryParams("title");
+				String review = req.queryParams("review");
+				Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+
+				Set<Review> reviews = new HashSet<>();
+				Review newReview = new Review(title, review, clothing);
+				DBHelper.save(newReview);
+
+				reviews.add(newReview);
+				clothing.setReviews(reviews);
+
+				DBHelper.save(clothing);
+				res.redirect("/accessories");
+				return null;
+			}, new VelocityTemplateEngine());
+
 	}
 }

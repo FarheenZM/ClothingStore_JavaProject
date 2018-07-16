@@ -7,10 +7,7 @@ import models.User;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -25,10 +22,10 @@ public class UserController {
     public void setupRoutes() {
         get("/cart", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
+            User foundUser = DBHelper.find(1, User.class);
 
-            User user = new User("username");
-            DBHelper.save(user);
-            List<Product> cartProducts = DBUser.getAllFavProducts(user);
+            List<Product> cartProducts = DBUser.getAllFavProducts(foundUser);
+
             model.put("cartProducts", cartProducts);
             model.put("template", "templates/users/cart.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -37,16 +34,14 @@ public class UserController {
 
         post("/cart/:id", (req, res) -> {
 
-            User user = new User("username");
-
+           User foundUser = DBHelper.find(1, User.class);
             Product favProduct = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 
-            Set<Product> cartProducts = new HashSet<>();
-
+            List<Product> cartProducts = DBUser.getAllFavProducts(foundUser);
             cartProducts.add(favProduct);
-            user.setProducts(cartProducts);
+            foundUser.setProducts(cartProducts);
 
-            DBHelper.save(user);
+            DBHelper.save(foundUser);
             res.redirect("/cart");
             return null;
 

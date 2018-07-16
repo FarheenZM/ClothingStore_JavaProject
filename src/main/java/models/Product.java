@@ -1,8 +1,11 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.Column;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -17,7 +20,7 @@ public class Product {
     private String image;
     private Shop shop;
     private Set<Review> reviews;
-    private User user;
+    private Set<User> users;
 
     public Product(){
 
@@ -30,6 +33,7 @@ public class Product {
         this.price = price;
         this.image = image;
         this.shop = shop;
+        this.users = new HashSet<>();
     }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -106,13 +110,16 @@ public class Product {
     }
 
 
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable = true)
-    public User getUser() {
-        return user;
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "products_users",
+            joinColumns = {@JoinColumn(name = "product_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)})
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }
