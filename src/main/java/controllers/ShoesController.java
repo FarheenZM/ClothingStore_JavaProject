@@ -24,7 +24,7 @@ public class ShoesController {
 	public void setupRoutes() {
 
 
-		get("/shoes", (req, res) -> { //displays all products of the shoe category
+		get("/manager/shoes", (req, res) -> { //displays all products of the shoe category
 			HashMap<String, Object> model = new HashMap<>();
 
 			List<Product> products = DBHelper.getAll(Product.class);
@@ -41,7 +41,7 @@ public class ShoesController {
 		}, new VelocityTemplateEngine());
 
 
-		get("/shoes/:id", (req, res) -> { //displays one product
+		get("/manager/shoes/:id", (req, res) -> { //displays one product
 			HashMap<String, Object> model = new HashMap<>();
 			String stringId = req.params(":id");
 			Integer id = Integer.parseInt(stringId);
@@ -52,7 +52,7 @@ public class ShoesController {
 
 		}, new VelocityTemplateEngine());
 
-		get("/shoes/:id/edit", (req,res) -> { //opens edit form
+		get("/manager/shoes/:id/edit", (req,res) -> { //opens edit form
 			HashMap<String, Object> model = new HashMap<>();
 			String stringId = req.params(":id");
 			Integer id = Integer.parseInt(stringId);
@@ -64,7 +64,7 @@ public class ShoesController {
 			return new ModelAndView(model, "templates/layout.vtl");
 		}, new VelocityTemplateEngine());
 
-		post("/shoes/:id/edit", (req, res) -> {
+		post("/manager/shoes/:id/edit", (req, res) -> {
 
 			String title = req.queryParams("title");
 			String description = req.queryParams("description");
@@ -84,44 +84,15 @@ public class ShoesController {
 			shoe.setShop(shop);
 
 			DBHelper.save(shoe);
-			res.redirect("/shoes");
+			res.redirect("/manager/shoes");
 			return null;
 		}, new VelocityTemplateEngine());
 
 
-		post("/shoes/:id/delete", (req, res) -> { //deletes manager &  displays manager list ; only post route
+		post("/manager/shoes/:id/delete", (req, res) -> { //deletes manager &  displays manager list ; only post route
 			Product shoe = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 			DBHelper.delete(shoe);
-			res.redirect("/shoes");
-			return null;
-		}, new VelocityTemplateEngine());
-
-		get("/shoes/:id/review", (req, res) -> { //opens up the review form
-			HashMap<String, Object> model = new HashMap<>();
-			String stringId = req.params(":id");
-			Integer id = Integer.parseInt(stringId);
-			Product product = DBHelper.find(id, Product.class);
-
-			model.put("shoe", product);
-			model.put("template", "templates/products/shoes/show.vtl");
-			return new ModelAndView(model, "templates/layout");
-		}, new VelocityTemplateEngine());
-
-
-		post("/shoes/:id/review", (req, res) -> { //saves a review to a product
-			String title = req.queryParams("title");
-			String review = req.queryParams("review");
-			Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
-
-			Set<Review> reviews = new HashSet<>();
-			Review newReview = new Review(title, review, clothing);
-			DBHelper.save(newReview);
-
-			reviews.add(newReview);
-			clothing.setReviews(reviews);
-
-			DBHelper.save(clothing);
-			res.redirect("/shoes");
+			res.redirect("/manager/shoes");
 			return null;
 		}, new VelocityTemplateEngine());
 

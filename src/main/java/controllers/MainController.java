@@ -24,7 +24,7 @@ public class MainController {
         UserController userController = new UserController();
         Seeds.seedData();
 
-        get("/", (req, res) -> {
+        get("/manager", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/home.vtl");
             return new ModelAndView(model, "templates/layout.vtl");

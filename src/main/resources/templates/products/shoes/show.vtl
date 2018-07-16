@@ -9,23 +9,9 @@
 
             <br>
 
-         <form action="/cart/$shoe.getId()" method="post">
-             <input type="submit" value="Add to Shopping cart" class="button"/>
-          </form>
+            <a href="/manager/shoes/$shoe.getId()/edit">Edit Item</a><br>
 
-    <form action="/shoes/$shoe.getId()/review" method="post">
-        <label for="title">Review Title :</label>
-        <input class="inputBox" type="text" name="title" required="true" id="title">
-        <label for="review">Review : </label>
-        <input class="inputBox" type="text" name="review" required="true" id="review">
-        <input type="submit" value="Submit review" class="button"/>
-    </form>
-
-
-
-            <a href="/shoes/$shoe.getId()/edit">Edit Item</a><br>
-
-            <form action="/shoes/$shoe.getId()/delete" method="post">
+            <form action="/manager/shoes/$shoe.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button"/>
             </form><br>
 
