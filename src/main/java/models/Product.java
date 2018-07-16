@@ -17,6 +17,7 @@ public class Product {
     private String image;
     private Shop shop;
     private Set<Review> reviews;
+    private User user;
 
     public Product(){
 
@@ -104,4 +105,14 @@ public class Product {
         this.reviews = reviews;
     }
 
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = true)
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

@@ -1,9 +1,14 @@
 import db.DBHelper;
+import db.DBUser;
 import models.Category;
 import models.Product;
 import models.Shop;
+import models.User;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Runner {
 
@@ -27,6 +32,15 @@ public class Runner {
 		DBHelper.save(newin1);
 
     List<Category> foundCategories = DBHelper.getAllCategories();
+
+    User user1 = new User("tara");
+    Set<Product> userProducts = new HashSet<>();
+    DBHelper.save(userProducts);
+    userProducts.add(clothing1);
+    userProducts.add(shoe1);
+    user1.setProducts(userProducts);
+    DBHelper.save(user1);
+      List<Product> favProducts = DBUser.getAllFavProducts(user1);
 
 }
 }

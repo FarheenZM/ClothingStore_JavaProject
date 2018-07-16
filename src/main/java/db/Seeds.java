@@ -1,9 +1,6 @@
 package db;
 
-import models.Category;
-import models.Product;
-import models.Review;
-import models.Shop;
+import models.*;
 
 import java.util.List;
 
@@ -17,6 +14,10 @@ public class Seeds {
 
 		Shop ClothesShop = new Shop("ClothesShop");
 		DBHelper.save(ClothesShop );
+
+		User user = new User("Jane");
+		DBHelper.save(user);
+
 
 
 		Product clothing1 = new Product("Wide Leg Trousers", "Checked wool and mohair-blend wide-leg pants", Category.CLOTHES, 275, "/images/Checked_pants.jpg", ClothesShop);

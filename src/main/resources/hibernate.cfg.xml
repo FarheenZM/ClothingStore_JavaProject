@@ -17,5 +17,6 @@
         <mapping class = "models.Shop"/>
         <mapping class= "models.Product"/>
         <mapping class= "models.Review"/>
+        <mapping class= "models.User"/>
     </session-factory>
 </hibernate-configuration>

@@ -21,7 +21,7 @@ public class MainController {
         staticFileLocation("/public");
 
         ProductController productController = new ProductController();
-
+        UserController userController = new UserController();
         Seeds.seedData();
 
         get("/", (req, res) -> {

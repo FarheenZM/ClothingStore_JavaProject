@@ -1,0 +1,23 @@
+
+<div class = "container">
+    <p class = "pageHeader">Shopping Cart</p>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+        #foreach($product in $cartProducts)
+        <tr>
+            <td><img src="$product.getImage()" alt="$product.getTitle()" height="100" width="80" title="$product.getTitle()"></td>
+            <td>$product.getTitle()</td>
+            <td>$product.getDescription()</td>
+            <td>£$product.getPrice()</td>
+        </tr>
+        #end
+    </table>
+</div>
+
+
+
