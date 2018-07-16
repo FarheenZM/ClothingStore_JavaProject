@@ -8,11 +8,30 @@
     £$clothing.getPrice()<br>
 
     <br>
+    <form action="/clothes/$clothing.getId()/review" method="post">
+        <label for="title">Title</label>
+        <input class="inputBox" type="text" name="title" required="true" id="title">
+        <label for="review">Review: </label>
+        <input class="inputBox" type="text" name="review" required="true" id="review">
+        <input type="submit" value="Submit review" class="button"/>
+    </form>
 
     <a href="/clothes/$clothing.getId()/edit">Edit Item</a>
 
     <form action="/clothes/$clothing.getId()/delete" method="post">
         <input type="submit" value="Delete" class="button"/>
     </form>
+
+    #foreach($review in $reviews)
+    <p>Title:</p>
+    <p>$review.getTitle()</p>
+    <p>Review:</p>
+    <p>$review.getReview()</p>
+    #end
+
+
+
+
+
 
 </div>

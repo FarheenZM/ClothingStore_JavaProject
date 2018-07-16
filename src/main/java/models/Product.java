@@ -3,6 +3,7 @@ package models;
 import javax.persistence.Column;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="products")
@@ -15,6 +16,7 @@ public class Product {
     private int price;
     private String image;
     private Shop shop;
+    private Set<Review> reviews;
 
     public Product(){
 
@@ -93,5 +95,13 @@ public class Product {
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
 
 }

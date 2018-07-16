@@ -8,6 +8,11 @@
             £$newin.getPrice()<br>
 
             <br>
+         <form action="/newin/$newin.getId()/review" method="post">
+             <label for="review">Review: </label>
+            <input class="inputBox" type="text" name="review" required="true" id="review">
+         <input type="submit" value="Submit review" class="button"/>
+        </form>
 
             <a href="/newin/$newin.getId()/edit">Edit Item</a>
 

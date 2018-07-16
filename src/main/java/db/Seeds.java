@@ -2,6 +2,7 @@ package db;
 
 import models.Category;
 import models.Product;
+import models.Review;
 import models.Shop;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class Seeds {
 		DBHelper.save(clothing3);
 		Product clothing4 = new Product("Charron shirred gingham cotton-blend top", "Exactly the kind of style you would pack for a weekend getaway, this 'Charron' top is cut from gingham cotton-blend seersucker and shirred at the straps and bodice.", Category.CLOTHES, 115, "/images/Summer_top.jpg", ClothesShop);
 		DBHelper.save(clothing4);
+
 
 
 		Product shoe1 = new Product("Lace Stilettos", "Portofino 105 lace sandals", Category.SHOES, 175, "/images/Heels.jpg", ClothesShop);
