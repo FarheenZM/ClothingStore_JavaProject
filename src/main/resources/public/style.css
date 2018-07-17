@@ -4,12 +4,14 @@ font-family:interstate-light;
 src:url("/interstatelight-webfont.ttf")}
 
 .nav{
-  display: block;
+  display: flex;
+  flex-direction:column;
   background-color: white;
   position: sticky;
   width: 100%;
   top:0;
-  border-bottom:1px solid black;
+  z-index:10;
+
 
 }
 
@@ -48,6 +50,9 @@ font-family: interstate-light;
 
 }
 
+.imgIndex:hover{
+ opacity:0.8;
+ }
 
 .row {
   display: flex;
@@ -128,13 +133,17 @@ font-family: interstate-light;
 }
 
 .header{
-display:block;
+display:flow-root;
 background-color: white;
   position: sticky;
   width: 100%;
   top:0;
   border-bottom:1px solid black;
 }
+
+ul{
+margin-top:0px;
+margin-bottom:3px;}
 
 .centreImage{
  display: block;
@@ -154,3 +163,46 @@ background-color: white;
   margin-bottom: 5%;
 
   }
+
+.button {
+  background-color: #FDAC2A;
+  border: 0px;
+  color: white;
+  margin: 10px;
+  padding: 12px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+   font-size: 13px;
+    text-transform:uppercase;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.2s;
+
+}
+
+.button:hover {
+  background-color:  #Fdac56;
+  color: white;
+}
+
+
+.managerButton {
+  background-color: #428cf4;
+  border: 0px;
+  color: white;
+  margin: 10px;
+  padding: 12px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 13px;
+  text-transform:uppercase;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.2s;
+
+}
+
+.managerButton:hover {
+  background-color:  #ef8a2b;
+  color: white;
+}

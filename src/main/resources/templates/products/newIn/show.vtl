@@ -9,10 +9,10 @@
 
             <br>
 
-            <a href="/manager/newin/$newin.getId()/edit">Edit Item</a>
+            <a class="managerButton" href="/manager/newin/$newin.getId()/edit">Edit Item</a>
 
             <form action="/manager/newin/$newin.getId()/delete" method="post">
-                <input type="submit" value="Delete" class="button"/>
+                <input type="submit" value="Delete" class="managerButton"/>
             </form>
 
     #foreach($review in $reviews)
