@@ -1,24 +1,18 @@
 
+<p class = "pageHeader">Shoes</p>
 
-<div class = "container">
-    <p class = "pageHeader">Shoes</p>
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
+<div class="row">
+
         #foreach($shoe in $shoes)
-        <tr>
-            <td><img src="$shoe.getImage()" alt="$shoe.getTitle()" height="100" width="80" title="$shoe.getTitle()"></td>
-            <td>$shoe.getTitle()</td>
-            <td>$shoe.getDescription()</td>
-            <td>£$shoe.getPrice()</td>
-            <td><a href="/manager/shoes/$shoe.getId()">Show</a></td>
-        </tr>
+        <div class="column">
+            <img class="imgIndex" src="$shoe.getImage()" alt="$shoe.getTitle()" title="$shoe.getTitle()"><br>
+            $shoe.getTitle()<br>
+
+            £$shoe.getPrice()<br>
+            <a href="/manager/shoes/$shoe.getId()">Show</a><br>
+        </div>
         #end
-    </table>
+
 </div>
 
 

@@ -4,7 +4,6 @@
         <tr>
             <th>Image</th>
             <th>Title</th>
-            <th>Description</th>
             <th>Price</th>
         </tr>
         #foreach($product in $cartProducts)
@@ -12,7 +11,6 @@
             <td><img src="$product.getImage()" alt="$product.getTitle()" height="100" width="80"
                      title="$product.getTitle()"></td>
             <td>$product.getTitle()</td>
-            <td>$product.getDescription()</td>
             <td>£$product.getPrice()</td>
             <td>
                 <form action="/cart/$product.getId()/remove" method="post">

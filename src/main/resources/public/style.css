@@ -1,7 +1,8 @@
+
 .nav{
   display: block;
   background-color: white;
-  position: fixed;
+  position: sticky;
   width: 100%;
   top:0;
   border-bottom:1px solid black;
@@ -40,7 +41,112 @@ color:grey;}
 
 body{
 font-family: lucinda grande;
+
 }
 
-.container{
-margin-top:30px;}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-basis: 28%;
+  padding: 5px;
+  margin: 2%;
+  text-align: center;
+}
+
+.rowShow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.columnShow {
+  flex-basis: 45%;
+  padding: 5px;
+  margin: 2%;
+  text-align: center;
+}
+
+.columnShowDetails {
+  flex-basis: 45%;
+  padding: 5px;
+  margin: 2%;
+  margin-top: 15%;
+  text-align: center;
+}
+
+.footer {
+  position: static;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #f3f3f3;
+  text-align: right;
+  justify-content: left;
+  color: black;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.header{
+display:block;
+background-color: white;
+  position: sticky;
+  width: 100%;
+  top:0;
+  border-bottom:1px solid black;
+}
+
+.centreImage{
+ display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+        height: auto;}
+
+  .imgIndex {
+    width: 80%;
+    height: auto;
+  }
+
+  .spacingDetails{
+
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+  }

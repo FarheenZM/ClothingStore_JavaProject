@@ -1,23 +1,17 @@
 <p class = "pageHeader">New In</p>
 
-<div class = "container">
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
+<div class="row">
+ 
         #foreach($newProduct in $newProducts)
-        <tr>
-            <td><img src="$newProduct.getImage()" alt="$newProduct.getTitle()" height="100" width="80" title="$newProduct.getTitle()"></td>
-            <td>$newProduct.getTitle()</td>
-            <td>$newProduct.getDescription()</td>
-            <td>£$newProduct.getPrice()</td>
-            <td><a href="/newin/$newProduct.getId()">Show</a></td>
-        </tr>
+         <div class="column">
+            <img class="imgIndex" src="$newProduct.getImage()" alt="$newProduct.getTitle()" title="$newProduct.getTitle()"><br>
+            $newProduct.getTitle()<br>
+
+            £$newProduct.getPrice()<br>
+            <a href="/newin/$newProduct.getId()">Show</a><br>
+        </div>
         #end
-    </table>
+
 </div>
 
 

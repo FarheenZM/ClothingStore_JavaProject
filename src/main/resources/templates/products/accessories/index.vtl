@@ -1,23 +1,16 @@
 <p class = "pageHeader">Accessories</p>
 
-<div class = "container">
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Price</th>
-        </tr>
+<div class="row">
+  
         #foreach($accessory in $accessories)
-        <tr>
-            <td><img src="$accessory.getImage()" alt="$accessory.getTitle()" height="100" width="80" title="$accessory.getTitle()"></td>
-            <td>$accessory.getTitle()</td>
-            <td>$accessory.getDescription()</td>
-            <td>£$accessory.getPrice()</td>
-            <td><a href="/manager/accessories/$accessory.getId()">Show</a></td>
-        </tr>
+        <div class="column">
+            <img class="imgIndex" src="$accessory.getImage()" alt="$accessory.getTitle()" title="$accessory.getTitle()"><br>
+            $accessory.getTitle()<br>
+
+            £$accessory.getPrice()<br>
+            <a href="/manager/accessories/$accessory.getId()">Show</a><br>
+        </div>
         #end
-    </table>
 </div>
 
 
