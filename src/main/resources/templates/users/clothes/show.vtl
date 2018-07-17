@@ -1,17 +1,29 @@
 
-<div class = "container">
+<div class="rowShow">
 
-    <img src="$clothing.getImage()" alt="$clothing.getTitle()" title="$clothing.getTitle()"><br>
+<div class="columnShow">
+    <img class = "zoom" src="$clothing.getImage()" alt="$clothing.getTitle()" title="$clothing.getTitle()"><br>
+</div>
+ <div class="columnShowDetails">
 
+            <div class = "spacingDetails">
     <b>$clothing.getTitle()</b><br>
+        </div>
+                 <div class = "spacingDetails">
     $clothing.getDescription()<br>
-    £$clothing.getPrice()<br>
+        </div>
+                 <div class = "spacingDetails">
+    <b>£$clothing.getPrice()</b><br>
+        </div>
+                 <div class = "spacingDetails">
 
-    <br>
+
 
     <form action="/cart/$clothing.getId()" method="post">
         <input type="submit" value="Add to Shopping cart" class="button"/>
     </form>
+        </div>
+                 <div class = "spacingDetails">
 
     <form action="/clothes/$clothing.getId()/review" method="post">
         <label for="title">Review Title :</label>
@@ -20,6 +32,8 @@
         <input class="inputBox" type="text" name="review" required="true" id="review">
         <input type="submit" value="Submit review" class="button"/>
     </form>
+        </div>
+                 <div class = "spacingDetails">
 
 
     #foreach($review in $reviews)
@@ -29,7 +43,8 @@
     <p>$review.getReview()</p>
     #end
 
-
+</div>
+</div>
 
 
 

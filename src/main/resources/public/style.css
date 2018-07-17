@@ -154,3 +154,14 @@ background-color: white;
   margin-bottom: 5%;
 
   }
+
+  .zoom {
+
+      transition: transform .2s; /* Animation */
+
+  }
+
+  .zoom:hover {
+      transform: scale(1.25);
+      cursor: zoom-in;
+      }

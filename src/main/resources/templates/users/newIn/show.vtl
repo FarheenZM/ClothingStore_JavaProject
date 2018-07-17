@@ -1,18 +1,29 @@
 
-<div class = "container">
+<div class="rowShow">
 
-            <img src="$newin.getImage()" alt="$newin.getTitle()" title="$newin.getTitle()"><br>
+<div class="columnShow">
+            <img class = "zoom" src="$newin.getImage()" alt="$newin.getTitle()" title="$newin.getTitle()"><br>
+            </div>
+            <div class="columnShowDetails">
+
+            <div class = "spacingDetails">
 
             <b>$newin.getTitle()<br></b>
+            </div>
+             <div class = "spacingDetails">
             $newin.getDescription()<br>
-            £$newin.getPrice()<br>
+              </div>
+             <div class = "spacingDetails">
+            <b>£$newin.getPrice()</b><br>
 
-            <br>
+             </div>
+             <div class = "spacingDetails">
 
     <form action="/cart/$newin.getId()" method="post">
         <input type="submit" value="Add to Shopping cart" class="button"/>
     </form>
-
+  </div>
+             <div class = "spacingDetails">
          <form action="/newin/$newin.getId()/review" method="post">
              <label for="title">Review Title :</label>
              <input class="inputBox" type="text" name="title" required="true" id="title">
@@ -21,12 +32,16 @@
          <input type="submit" value="Submit review" class="button"/>
         </form>
 
-
+  </div>
+             <div class = "spacingDetails">
     #foreach($review in $reviews)
     <p>Title:</p>
     <p>$review.getTitle()</p>
     <p>Review:</p>
     <p>$review.getReview()</p>
     #end
+      </div>
+
+     </div>
 
 </div>

@@ -1,29 +1,33 @@
 
-<div class = "container">
+<div class="rowShow">
+<div class="columnShow">
 
-            <img src="$accessory.getImage()" alt="$accessory.getTitle()" title="$accessory.getTitle()"><br>
-
+            <img class = "zoom" src="$accessory.getImage()" alt="$accessory.getTitle()" title="$accessory.getTitle()"><br>
+      </div>
+       <div class="columnShowDetails">
+                                             <div class = "spacingDetails">
             <b>$accessory.getTitle()<br></b>
+                  </div>
+                                                         <div class = "spacingDetails">
             $accessory.getDescription()<br>
-            £$accessory.getPrice()<br>
-
-            <br>
-
+                  </div>
+                                                         <div class = "spacingDetails">
+            <b>£$accessory.getPrice()</b><br>
+                  </div>
+                                                         <div class = "spacingDetails">
 
             <a href="/manager/accessories/$accessory.getId()/edit">Edit Item</a>
 
+      </div>
+                                             <div class = "spacingDetails">
+
             <form action="/manager/accessories/$accessory.getId()/delete" method="post">
+                  </div>
+                                                         <div class = "spacingDetails">
 
                 <input type="submit" value="Delete" class="button"/>
             </form>
-
-    #foreach($review in $reviews)
-    <p>Title:</p>
-    <p>$review.getTitle()</p>
-    <p>Review:</p>
-    <p>$review.getReview()</p>
-    #end
-
-
+</div>
+</div>
 
 </div>

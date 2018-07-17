@@ -1,25 +1,33 @@
 
-<div class = "container">
+<div class="rowShow">
+<div class="columnShow">
+            <img class = "zoom" src="$newin.getImage()" alt="$newin.getTitle()" title="$newin.getTitle()"><br>
+</div>
+ <div class="columnShowDetails">
 
-            <img src="$newin.getImage()" alt="$newin.getTitle()" title="$newin.getTitle()"><br>
-
+            <div class = "spacingDetails">
+                </div>
+                                                     <div class = "spacingDetails">
             <b>$newin.getTitle()<br></b>
+                </div>
+                                                     <div class = "spacingDetails">
             $newin.getDescription()<br>
-            £$newin.getPrice()<br>
-
-            <br>
+                </div>
+                                                     <div class = "spacingDetails">
+            <b>£$newin.getPrice()</b><br>
+    </div>
+                                         <div class = "spacingDetails">
 
             <a href="/manager/newin/$newin.getId()/edit">Edit Item</a>
+                </div>
+                                                     <div class = "spacingDetails">
 
             <form action="/manager/newin/$newin.getId()/delete" method="post">
                 <input type="submit" value="Delete" class="button"/>
             </form>
 
-    #foreach($review in $reviews)
-    <p>Title:</p>
-    <p>$review.getTitle()</p>
-    <p>Review:</p>
-    <p>$review.getReview()</p>
-    #end
+            </div>
+            </div>
+
 
 </div>
