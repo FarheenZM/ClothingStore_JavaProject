@@ -4,6 +4,7 @@ import com.sun.xml.internal.ws.handler.HandlerException;
 import models.Product;
 import models.User;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -33,4 +34,35 @@ public class DBUser {
         }
         return favProducts;
     }
+
+    public static void removeFavProduct(User user, Product product){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Product> favProducts = getAllFavProducts(user);
+        try{
+            transaction = session.beginTransaction();
+//            Criteria cr = session.createCriteria(Product.class);
+//            cr.add(Restrictions.eq("user.id", user.getId()));
+            favProducts.remove(product);
+            transaction.commit();
+        }catch (HandlerException e){
+            transaction.rollback();
+            e.printStackTrace();
+        }finally {
+//            session.close();
+        }
+    }
+
+//    public static void removeFavProduct(Product product) {
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            transaction = session.beginTransaction();
+//            session.delete(object);
+//            transaction.commit();
+//        } catch (HibernateException e) {
+//            transaction.rollback();
+//            e.printStackTrace();
+//        } finally {
+//            session.close();
+//        }
+//    }
 }

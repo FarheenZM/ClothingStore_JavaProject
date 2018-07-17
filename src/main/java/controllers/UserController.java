@@ -163,7 +163,7 @@ public class UserController {
 
         post("/cart/:id", (req, res) -> {
 
-           User foundUser = DBHelper.find(1, User.class);
+            User foundUser = DBHelper.find(1, User.class);
             Product favProduct = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 
             List<Product> cartProducts = DBUser.getAllFavProducts(foundUser);
@@ -291,6 +291,14 @@ public class UserController {
 
             DBHelper.save(clothing);
             res.redirect("/shoes");
+            return null;
+        }, new VelocityTemplateEngine());
+
+        post("/cart/:id/remove", (req, res) -> {
+            User user = DBHelper.find(1, User.class);
+            Product product = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+            DBUser.removeFavProduct(user, product);
+            res.redirect("/cart");
             return null;
         }, new VelocityTemplateEngine());
 
