@@ -1,15 +1,16 @@
 
-<p class = "pageHeader">Shoes</p>
-
 <div class="row">
 
         #foreach($shoe in $shoes)
         <div class="column">
-            <img class="imgIndex" src="$shoe.getImage()" alt="$shoe.getTitle()" title="$shoe.getTitle()"><br>
+            <a href="/manager/shoes/$shoe.getId()"><img class="imgIndex" src="$shoe.getImage()" alt="$shoe.getTitle()" title="$shoe.getTitle()"></a><br>
             $shoe.getTitle()<br>
 
+
             <b>£$shoe.getPrice()</b><br>
-            <a href="/manager/shoes/$shoe.getId()">Show</a><br>
+
+            <hr width=30%>
+
         </div>
         #end
 

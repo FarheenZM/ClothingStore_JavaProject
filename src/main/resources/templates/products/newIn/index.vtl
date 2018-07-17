@@ -1,14 +1,14 @@
-<p class = "pageHeader">New In</p>
 
 <div class="row">
 
         #foreach($newProduct in $newProducts)
         <div class="column">
-            <img class="imgIndex" src="$newProduct.getImage()" alt="$newProduct.getTitle()" title="$newProduct.getTitle()"><br>
+            <a href="/manager/newin/$newProduct.getId()"><img class="imgIndex" src="$newProduct.getImage()" alt="$newProduct.getTitle()" title="$newProduct.getTitle()"></a><br>
             $newProduct.getTitle()<br>
 
             <b>£$newProduct.getPrice()</b><br>
-            <a href="/manager/newin/$newProduct.getId()">Show</a><br>
+            <hr width=30%>
+
         </div>
         #end
 
