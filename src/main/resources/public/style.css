@@ -1,4 +1,8 @@
 
+@font-face{
+font-family:interstate-light;
+src:url("/interstatelight-webfont.ttf")}
+
 .nav{
   display: block;
   background-color: white;
