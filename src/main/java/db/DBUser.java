@@ -35,34 +35,37 @@ public class DBUser {
         return favProducts;
     }
 
-    public static void removeFavProduct(User user, Product product){
-        session = HibernateUtil.getSessionFactory().openSession();
-        List<Product> favProducts = getAllFavProducts(user);
-        try{
-            transaction = session.beginTransaction();
+//    public static void removeFavProduct(User user, Product product){
+//        session = HibernateUtil.getSessionFactory().openSession();
+//        List<Product> favProducts = getAllFavProducts(user);
+//        try{
+//            transaction = session.beginTransaction();
 //            Criteria cr = session.createCriteria(Product.class);
 //            cr.add(Restrictions.eq("user.id", user.getId()));
-            favProducts.remove(product);
-            transaction.commit();
-        }catch (HandlerException e){
-            transaction.rollback();
-            e.printStackTrace();
-        }finally {
-//            session.close();
-        }
-    }
-
-//    public static void removeFavProduct(Product product) {
-//        session = HibernateUtil.getSessionFactory().openSession();
-//        try {
-//            transaction = session.beginTransaction();
-//            session.delete(object);
-//            transaction.commit();
-//        } catch (HibernateException e) {
+//            cr.list();
+//        }catch (HandlerException e){
 //            transaction.rollback();
 //            e.printStackTrace();
-//        } finally {
+//        }finally {
 //            session.close();
 //        }
 //    }
+
+
+    public static void removeFavProduct(int userId, int productId){
+        session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            User user = (User)session.get(User.class, userId);
+            Product product = (Product)session.get(Product.class, productId);
+            user.getProducts().remove(product);
+            session.save(user);
+            transaction.commit();
+        } catch (HibernateException e){
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
 }

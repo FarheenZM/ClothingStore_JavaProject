@@ -17,7 +17,7 @@ import static spark.Spark.post;
 public class UserController {
 
 
-    public UserController(){
+    public UserController() {
         setupRoutes();
     }
 
@@ -34,8 +34,8 @@ public class UserController {
             HashMap<String, Object> model = new HashMap<>();
             List<Product> products = DBHelper.getAll(Product.class);
             List<Product> accessories = new ArrayList<>();
-            for( Product product : products){
-                if (product.getCategory() == Category.ACCESSORIES){
+            for (Product product : products) {
+                if (product.getCategory() == Category.ACCESSORIES) {
                     accessories.add(product);
                     model.put("template", "templates/users/accessories/index.vtl");
                     model.put("accessories", accessories);
@@ -55,8 +55,6 @@ public class UserController {
             return new ModelAndView(model, "templates/layoutUser.vtl");
 
         }, new VelocityTemplateEngine());
-
-
 
 
         get("/clothes", (req, res) -> { //displays all products of clothing category
@@ -117,14 +115,12 @@ public class UserController {
         }, new VelocityTemplateEngine());
 
 
-
-
         get("/shoes", (req, res) -> { //displays all products of the shoe category
             HashMap<String, Object> model = new HashMap<>();
 
             List<Product> products = DBHelper.getAll(Product.class);
             List<Product> shoes = new ArrayList<>();
-            for( Product product : products) {
+            for (Product product : products) {
                 if (product.getCategory() == Category.SHOES) {
                     shoes.add(product);
                     model.put("template", "templates/users/shoes/index.vtl");
@@ -146,7 +142,6 @@ public class UserController {
             return new ModelAndView(model, "templates/layoutUser.vtl");
 
         }, new VelocityTemplateEngine());
-
 
 
         get("/cart", (req, res) -> {
@@ -297,7 +292,9 @@ public class UserController {
         post("/cart/:id/remove", (req, res) -> {
             User user = DBHelper.find(1, User.class);
             Product product = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
-            DBUser.removeFavProduct(user, product);
+
+            DBUser.removeFavProduct(user.getId(), product.getId());
+
             res.redirect("/cart");
             return null;
         }, new VelocityTemplateEngine());
