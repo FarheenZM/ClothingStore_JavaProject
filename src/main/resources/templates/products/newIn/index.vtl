@@ -4,9 +4,8 @@
         #foreach($newProduct in $newProducts)
         <div class="column">
             <a href="/manager/newin/$newProduct.getId()"><img class="imgIndex" src="$newProduct.getImage()" alt="$newProduct.getTitle()" title="$newProduct.getTitle()"></a><br>
-            $newProduct.getTitle()<br>
-
-            <b>£$newProduct.getPrice()</b><br>
+            <p>$newProduct.getTitle()</p>
+            <p><b>£$newProduct.getPrice()</b></p>
             <hr width=30%>
 
         </div>

@@ -170,9 +170,12 @@ margin-bottom:3px;}
 
   }
 
-  .zoom:hover {
-      transform: scale(1.25);
+ .zoom:hover {
+      transform: scale(1.2);
       cursor: zoom-in;
+      z-index: 11;
+      border-width: 1px;
+      border-color: black;
       }
 
 .button {
@@ -239,8 +242,20 @@ display:flex;
 background-image: url('https://assets.ynap-content.com/story-head-content-v1-1530881216076.gif');
 background-repeat: no-repeat;
 width:100%;
-height: 400px;
+height: -webkit-fill-available;
 background-size: cover;
 justify-content: center;
 align-items: center;
 }
+
+.homepageTop{
+  margin: 0 auto;
+  width: unset;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+p{
+margin-top:7px;
+margin-bottom:5px;}

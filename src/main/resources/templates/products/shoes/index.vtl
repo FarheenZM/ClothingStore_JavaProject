@@ -4,11 +4,8 @@
         #foreach($shoe in $shoes)
         <div class="column">
             <a href="/manager/shoes/$shoe.getId()"><img class="imgIndex" src="$shoe.getImage()" alt="$shoe.getTitle()" title="$shoe.getTitle()"></a><br>
-            $shoe.getTitle()<br>
-
-
-            <b>£$shoe.getPrice()</b><br>
-
+            <p>$shoe.getTitle()</p>
+            <p><b>£$shoe.getPrice()</b></p>
             <hr width=30%>
 
         </div>

@@ -6,10 +6,8 @@
         #foreach($accessory in $accessories)
         <div class="column">
             <a href="/accessories/$accessory.getId()"><img class="imgIndex" src="$accessory.getImage()" alt="$accessory.getTitle()" title="$accessory.getTitle()"></a><br>
-            $accessory.getTitle()<br>
-
-            <b>£$accessory.getPrice()</b><br>
-
+            <p>$accessory.getTitle()</p>
+            <p><b>£$accessory.getPrice()</b></p>
             <hr width=30%>
 
         </div>
