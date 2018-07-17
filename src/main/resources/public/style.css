@@ -14,7 +14,7 @@
   margin-right: 45px;
   text-transform: uppercase;
   text-decoration: none;
-  font-family: lucinda grande;
+  font-family: interstate-light;
   color: black;
   font-size: 14px;
   color: black;
@@ -33,14 +33,14 @@
 
 a {text-decoration: none;
   color: black;
-  font-family: lucinda grande;
+  font-family: interstate-light;
 }
 
 a:hover{
 color:grey;}
 
 body{
-font-family: lucinda grande;
+font-family: interstate-light;
 
 }
 
