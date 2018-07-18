@@ -97,6 +97,7 @@ public class DBHelper {
     public static <T> List<T> getAll(Class classType) {
         session = HibernateUtil.getSessionFactory().openSession();
         Criteria cr = session.createCriteria(classType);
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         return getList(cr);
     }
 

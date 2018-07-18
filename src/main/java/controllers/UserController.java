@@ -50,6 +50,8 @@ public class UserController {
             String stringId = req.params(":id");
             Integer id = Integer.parseInt(stringId);
             Product product = DBHelper.find(id, Product.class);
+	        Set<Review> reviews = product.getReviews();
+	        model.put("reviews", reviews);
             model.put("accessory", product);
             model.put("template", "templates/users/accessories/show.vtl");
             return new ModelAndView(model, "templates/layoutUser.vtl");
@@ -108,6 +110,8 @@ public class UserController {
             String stringId = req.params(":id");
             Integer id = Integer.parseInt(stringId);
             Product product = DBHelper.find(id, Product.class);
+	        Set<Review> reviews = product.getReviews();
+	        model.put("reviews", reviews);
             model.put("newin", product);
             model.put("template", "templates/users/newIn/show.vtl");
             return new ModelAndView(model, "templates/layoutUser.vtl");
@@ -137,6 +141,8 @@ public class UserController {
             String stringId = req.params(":id");
             Integer id = Integer.parseInt(stringId);
             Product product = DBHelper.find(id, Product.class);
+	        Set<Review> reviews = product.getReviews();
+	        model.put("reviews", reviews);
             model.put("shoe", product);
             model.put("template", "templates/users/shoes/show.vtl");
             return new ModelAndView(model, "templates/layoutUser.vtl");
@@ -186,16 +192,16 @@ public class UserController {
         post("/accessories/:id/review", (req, res) -> { //saves a review to a product
             String title = req.queryParams("title");
             String review = req.queryParams("review");
-            Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+            Product accessory = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 
             Set<Review> reviews = new HashSet<>();
-            Review newReview = new Review(title, review, clothing);
+            Review newReview = new Review(title, review, accessory);
             DBHelper.save(newReview);
 
             reviews.add(newReview);
-            clothing.setReviews(reviews);
+            accessory.setReviews(reviews);
 
-            DBHelper.save(clothing);
+            DBHelper.save(accessory);
             res.redirect("/accessories");
             return null;
         }, new VelocityTemplateEngine());
@@ -221,10 +227,10 @@ public class UserController {
             Review newReview = new Review(title, review, clothing);
             DBHelper.save(newReview);
 
-            reviews.add(newReview);
-            clothing.setReviews(reviews);
+//            reviews.add(newReview);
+//            clothing.setReviews(reviews);
 
-            DBHelper.save(clothing);
+//            DBHelper.save(clothing);
             res.redirect("/clothes");
             return null;
         }, new VelocityTemplateEngine());
@@ -245,16 +251,16 @@ public class UserController {
         post("/newin/:id/review", (req, res) -> { //saves a review to a product
             String title = req.queryParams("title");
             String review = req.queryParams("review");
-            Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+            Product newin = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 
             Set<Review> reviews = new HashSet<>();
-            Review newReview = new Review(title, review, clothing);
+            Review newReview = new Review(title, review, newin);
             DBHelper.save(newReview);
 
             reviews.add(newReview);
-            clothing.setReviews(reviews);
+            newin.setReviews(reviews);
 
-            DBHelper.save(clothing);
+            DBHelper.save(newin);
             res.redirect("/newin");
             return null;
         }, new VelocityTemplateEngine());
@@ -275,16 +281,16 @@ public class UserController {
         post("/shoes/:id/review", (req, res) -> { //saves a review to a product
             String title = req.queryParams("title");
             String review = req.queryParams("review");
-            Product clothing = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
+            Product shoe = DBHelper.find(Integer.parseInt(req.params(":id")), Product.class);
 
             Set<Review> reviews = new HashSet<>();
-            Review newReview = new Review(title, review, clothing);
+            Review newReview = new Review(title, review, shoe);
             DBHelper.save(newReview);
 
             reviews.add(newReview);
-            clothing.setReviews(reviews);
+            shoe.setReviews(reviews);
 
-            DBHelper.save(clothing);
+            DBHelper.save(shoe);
             res.redirect("/shoes");
             return null;
         }, new VelocityTemplateEngine());
