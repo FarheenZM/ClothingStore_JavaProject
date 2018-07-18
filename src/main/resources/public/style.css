@@ -80,6 +80,15 @@ font-family: interstate-light;
   text-align: center;
 }
 
+.columnShowNewin {
+  flex-basis: 45%;
+  padding: 5px;
+  margin: 2%;
+  margin-top: 7%;
+  text-align: center;
+}
+
+
 .columnShowDetails {
   flex-basis: 45%;
   padding: 5px;
@@ -87,6 +96,8 @@ font-family: interstate-light;
   margin-top: 15%;
   text-align: center;
 }
+
+
 
 .footer {
   position: static;
@@ -239,7 +250,7 @@ margin-bottom:3px;}
 
 .homepageImage{
 display:flex;
-background-image: url('https://assets.ynap-content.com/story-head-content-v1-1530881216076.gif');
+background-image: url('https://assets.ynap-content.com/story-head-content-SUBBED-1527869262878.gif');
 background-repeat: no-repeat;
 width:100%;
 height: -webkit-fill-available;
@@ -259,3 +270,33 @@ align-items: center;
 p{
 margin-top:7px;
 margin-bottom:5px;}
+
+h1{
+font-size: 50px;
+color: black;
+font-family: playfair display;
+font-weight: 300;
+align: center;
+background-color: white;
+opacity: 0.7;
+}
+
+h2{
+font-size: 50px;
+color: black;
+font-family: playfair display;
+font-weight: 300;
+align: center;
+}
+
+.managerHomepageImage{
+display:flex;
+background-image: url('/images/BeeWatermark.png');
+background-repeat: no-repeat;
+width:100%;
+height: -webkit-fill-available;
+background-size: cover;
+justify-content: center;
+align-items: center;
+}
+
